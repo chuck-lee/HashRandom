@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Hash Random</title>
+	<script type="text/javascript" src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
+	<script type="text/javascript" src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha1.js"></script>
+	<script type="text/javascript" src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/hmac-md5.js"></script>
+	<script type="text/javascript" src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/hmac-sha1.js"></script>
+	<script type="text/javascript" src="http://davidbau.com/encode/seedrandom-min.js"></script>
+	<script type="text/javascript">
+	<!--
+	function myRandom() {
+		var source = document.getElementById("source").value;
+		var hash = source;
+
+		// Hash
+		hash = CryptoJS.MD5(hash);
+		hash = CryptoJS.SHA1(hash);
+		hash = CryptoJS.HmacMD5("chucklee", hash);
+		hash = CryptoJS.HmacSHA1("chucklee", hash);
+
+		// Random
+		var iterat = 5;
+		var result = Math.seedrandom(hash);
+		for (var i = 0; i < 5; i++) {
+			Math.random();
+		}
+		var result = Math.random()
+
+		document.getElementById("result").value = result;
+	}
+	//-->
+	</script>
+</head>
+<body>
+	Source String
+	<br />
+	<input type="text" id="source" style="width:80%"/>
+	<br />
+	<input type="button" onclick="myRandom()" value="Hash Random" />
+	<br />
+	Result
+	<br />
+	<input type="text" id="result" style="width:80%"/>
+	<br />
+	<br />
+	Hash Library: <a href="http://crypto-js.googlecode.com">http://crypto-js.googlecode.com</a>
+	<br />
+	Random Seed: <a href="http://davidbau.com/archives/2010/01/30/random_seeds_coded_hints_and_quintillions.html">http://davidbau.com/archives/2010/01/30/random_seeds_coded_hints_and_quintillions.html</a>
+</body>
+</html>
